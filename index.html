@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mass Haris</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">HT</div>
+            <div class="nav-links" id="navLinks"></div>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <button class="theme-toggle" aria-label="Toggle theme">
+                <i class="fas fa-moon"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content" id="heroContent">
+            <!-- Content will be filled from data.js -->
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <h2 class="section-title">Keterampilan</h2>
+        <div class="skills-container" id="skillsContainer">
+            <!-- Skills will be filled from data.js -->
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <h2 class="section-title">Pengalaman Kerja</h2>
+        <div class="timeline" id="experienceTimeline">
+            <!-- Experience will be filled from data.js -->
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <h2 class="section-title">Portofolio</h2>
+        <div class="portfolio-container" id="portfolioContainer">
+            <!-- Portfolio items will be filled from data.js -->
+        </div>
+    </section>
+
+    <!-- Portfolio Modal (for desktop) -->
+    <div id="portfolioModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal">×</button>
+            <h2 class="modal-title" id="modalTitle"></h2>
+            <div class="swiper">
+                <div class="swiper-wrapper" id="modalSwiper"></div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+            <div class="modal-details" id="modalDetails"></div>
+        </div>
+    </div>
+
+    <!-- Portfolio Bottom Sheet (for mobile) -->
+    <div id="portfolioBottomSheet" class="bottom-sheet">
+        <div class="bottom-sheet-content">
+            <div class="bottom-sheet-header">
+                <h2 class="bottom-sheet-title" id="bottomSheetTitle"></h2>
+                <button class="close-bottom-sheet">×</button>
+            </div>
+            <div class="swiper bottom-sheet-swiper">
+                <div class="swiper-wrapper" id="bottomSheetSwiper"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+            <div class="bottom-sheet-details" id="bottomSheetDetails"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content" id="footerContent">
+            <!-- Footer content will be filled from data.js -->
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
