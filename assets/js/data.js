@@ -161,7 +161,7 @@ const portfolioData = {
             title: 'HRIS Web & Mobile',
             shortDescription: 'Pengembangan aplikasi HRIS web dan juga mobile version',
             thumbnail: 'assets/images/hris/2a.png',
-            tags: ['Epicor ERP', 'SSRS', 'BAQ', 'Filament', 'Flutter', 'Firebase'],
+            tags: ['Laravel','Filament', 'Flutter', 'Firebase','MySQL'],
             details: `
                 <h3>Tentang Proyek</h3>
                 <p>Pengembangan aplikasi HRIS web dan juga mobile version</p>
