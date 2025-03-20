@@ -1,3 +1,4 @@
+// assets/js/script.js
 let offcanvasSlider;
 let mobileSwiper;
 const offcanvas = document.getElementById('portfolioOffcanvas');
@@ -11,9 +12,13 @@ const bottomSheetTitle = document.getElementById('bottomSheetTitle');
 const bottomSheetDetails = document.getElementById('bottomSheetDetails');
 const bottomSheetSwiper = document.getElementById('bottomSheetSwiper');
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Populate navigation
+let currentLang = localStorage.getItem('language') || 'en';
+portfolioData = languageData[currentLang];
+document.documentElement.lang = currentLang;
+
+function updateContent() {
     const navLinks = document.getElementById('navLinks');
+    navLinks.innerHTML = '';
     portfolioData.navigation.forEach(item => {
         const link = document.createElement('a');
         link.href = item.link;
@@ -21,7 +26,6 @@ document.addEventListener('DOMContentLoaded', function() {
         navLinks.appendChild(link);
     });
 
-    // Populate hero section
     const heroContent = document.getElementById('heroContent');
     heroContent.innerHTML = `
         <div class="profile-img">
@@ -48,8 +52,9 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     `;
 
-    // Populate skills
+    document.getElementById('skillsTitle').textContent = portfolioData.sectionTitles.skills;
     const skillsContainer = document.getElementById('skillsContainer');
+    skillsContainer.innerHTML = '';
     portfolioData.skills.forEach(skill => {
         const skillItem = document.createElement('div');
         skillItem.className = 'skill-item';
@@ -60,16 +65,15 @@ document.addEventListener('DOMContentLoaded', function() {
         skillsContainer.appendChild(skillItem);
     });
 
-    // Populate experience
+    document.getElementById('experienceTitle').textContent = portfolioData.sectionTitles.experience;
     const experienceTimeline = document.getElementById('experienceTimeline');
+    experienceTimeline.innerHTML = '';
     portfolioData.experience.forEach(job => {
         const timelineItem = document.createElement('div');
         timelineItem.className = 'timeline-item';
-        
         const responsibilitiesList = job.responsibilities.map(responsibility => 
             `<li>${responsibility}</li>`
         ).join('');
-        
         timelineItem.innerHTML = `
             <div class="timeline-content">
                 <h3>${job.title}</h3>
@@ -81,17 +85,16 @@ document.addEventListener('DOMContentLoaded', function() {
         experienceTimeline.appendChild(timelineItem);
     });
 
-    // Populate portfolio
+    document.getElementById('portfolioTitle').textContent = portfolioData.sectionTitles.portfolio;
     const portfolioContainer = document.getElementById('portfolioContainer');
+    portfolioContainer.innerHTML = '';
     Object.values(portfolioData.projects).forEach(project => {
         const portfolioItem = document.createElement('div');
         portfolioItem.className = 'portfolio-item';
         portfolioItem.setAttribute('data-id', project.id);
-        
         const tagsList = project.tags.map(tag => 
             `<span class="portfolio-tag">${tag}</span>`
         ).join('');
-        
         portfolioItem.innerHTML = `
             <div class="portfolio-img">
                 <img src="${project.thumbnail}" alt="${project.title}">
@@ -105,10 +108,8 @@ document.addEventListener('DOMContentLoaded', function() {
         portfolioContainer.appendChild(portfolioItem);
     });
 
-    // Populate footer
     const footerContent = document.getElementById('footerContent');
     const interestsList = portfolioData.personal.interests.join(', ');
-    
     footerContent.innerHTML = `
         <p>${portfolioData.personal.name} | ${portfolioData.personal.title}</p>
         <div class="social-links">
@@ -116,53 +117,87 @@ document.addEventListener('DOMContentLoaded', function() {
             <a href="${portfolioData.personal.social.linkedin}" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
             <a href="${portfolioData.personal.social.instagram}" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
         </div>
-        <p>Minat: ${interestsList}</p>
+        <p>Interests: ${interestsList}</p>
     `;
-});
-
-// Toggle dark mode
-const themeToggle = document.querySelector('.theme-toggle');
-const body = document.body;
-const themeIcon = themeToggle.querySelector('i');
-
-const currentTheme = localStorage.getItem('theme') || 'light';
-if (currentTheme === 'dark') {
-    body.setAttribute('data-theme', 'dark');
-    themeIcon.classList.replace('fa-moon', 'fa-sun');
 }
 
-themeToggle.addEventListener('click', () => {
-    if (body.getAttribute('data-theme') === 'dark') {
-        body.removeAttribute('data-theme');
-        themeIcon.classList.replace('fa-sun', 'fa-moon');
-        localStorage.setItem('theme', 'light');
-    } else {
+document.addEventListener('DOMContentLoaded', function() {
+    updateContent();
+
+    const settingsToggle = document.querySelector('.settings-toggle');
+    const settingsDropdown = document.getElementById('settingsDropdown');
+    const themeOption = document.querySelector('.theme-option');
+    const langOption = document.querySelector('.lang-option');
+    const langFlag = document.getElementById('langFlag');
+    const body = document.body;
+
+    // Set initial language flag
+    if (currentLang === 'id') {
+        langFlag.innerHTML = '<i class="fas fa-flag"></i>';
+    }
+
+    // Toggle dropdown visibility
+    settingsToggle.addEventListener('click', () => {
+        settingsDropdown.classList.toggle('active');
+
+    });
+
+    // Handle theme toggle
+    const themeIcon = themeOption.querySelector('i');
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    if (currentTheme === 'dark') {
         body.setAttribute('data-theme', 'dark');
         themeIcon.classList.replace('fa-moon', 'fa-sun');
-        localStorage.setItem('theme', 'dark');
     }
-});
 
-// Mobile menu toggle
-const menuToggle = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('.nav-links');
+    themeOption.addEventListener('click', () => {
+        if (body.getAttribute('data-theme') === 'dark') {
+            body.removeAttribute('data-theme');
+            themeIcon.classList.replace('fa-sun', 'fa-moon');
+            localStorage.setItem('theme', 'light');
+        } else {
+            body.setAttribute('data-theme', 'dark');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+            localStorage.setItem('theme', 'dark');
+        }
+        settingsDropdown.classList.remove('active');
+    });
 
-menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-});
+    // Handle language toggle
+    langOption.addEventListener('click', () => {
+        currentLang = currentLang === 'en' ? 'id' : 'en';
+        portfolioData = languageData[currentLang];
+        document.documentElement.lang = currentLang;
+        localStorage.setItem('language', currentLang);
+        langFlag.innerHTML = currentLang === 'en' ? '<i class="fas fa-flag-usa"></i>' : '<i class="fas fa-flag"></i>';
+        updateContent();
+        settingsDropdown.classList.remove('active');
+    });
 
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!settingsToggle.contains(e.target) && !settingsDropdown.contains(e.target)) {
+            settingsDropdown.classList.remove('active');
+        }
+    });
+
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
     });
 });
 
-// Check if device is mobile
 function isMobile() {
     return window.innerWidth < 768;
 }
 
-// Portfolio item click handler
 document.addEventListener('click', function(e) {
     const portfolioItem = e.target.closest('.portfolio-item');
     if (!portfolioItem) return;
@@ -201,13 +236,8 @@ function showOffcanvas(project) {
             prevEl: '.offcanvas-swiper .swiper-button-prev' 
         },
         effect: 'fade',
-        fadeEffect: {
-            crossFade: true
-        },
-        autoplay: {
-            delay: 3000,
-            disableOnInteraction: false
-        }
+        fadeEffect: { crossFade: true },
+        autoplay: { delay: 3000, disableOnInteraction: false }
     });
     
     offcanvas.classList.add('active');
@@ -247,9 +277,8 @@ closeBottomSheet.addEventListener('click', () => {
     document.body.style.overflow = 'auto';
 });
 
-// Smooth scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+    anchor.addEventListener('click', function(e) {
         e.preventDefault();
         const targetId = this.getAttribute('href');
         const targetElement = document.querySelector(targetId);
@@ -260,7 +289,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Handle resize events to close offcanvas or bottom sheet
 window.addEventListener('resize', function() {
     if (offcanvas.classList.contains('active') || bottomSheet.classList.contains('active')) {
         offcanvas.classList.remove('active');

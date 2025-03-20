@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -22,40 +22,47 @@
             <button class="menu-toggle" aria-label="Toggle menu">
                 <i class="fas fa-bars"></i>
             </button>
-            <button class="theme-toggle" aria-label="Toggle theme">
-                <i class="fas fa-moon"></i>
-            </button>
+            <div class="settings-container">
+                <button class="settings-toggle" aria-label="Toggle settings">
+                    <i class="fas fa-cog"></i>
+                </button>
+                <div class="settings-dropdown" id="settingsDropdown">
+                    <button class="theme-option" data-action="theme">
+                        <i class="fas fa-moon"></i> <span>Theme</span>
+                    </button>
+                    <button class="lang-option" data-action="language">
+                        <span id="langFlag" class="flag-icon"><i class="fas fa-flag-usa"></i></span>
+                        <span>Language</span>
+                    </button>
+                </div>
+            </div>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content" id="heroContent">
-            <!-- Content will be filled from data.js -->
         </div>
     </section>
 
     <!-- Skills Section -->
     <section id="skills" class="skills">
-        <h2 class="section-title">Keterampilan</h2>
+        <h2 class="section-title" id="skillsTitle"></h2>
         <div class="skills-container" id="skillsContainer">
-            <!-- Skills will be filled from data.js -->
         </div>
     </section>
 
     <!-- Experience Section -->
     <section id="experience" class="experience">
-        <h2 class="section-title">Pengalaman Kerja</h2>
+        <h2 class="section-title" id="experienceTitle"></h2>
         <div class="timeline" id="experienceTimeline">
-            <!-- Experience will be filled from data.js -->
         </div>
     </section>
 
     <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio">
-        <h2 class="section-title">Portofolio</h2>
+        <h2 class="section-title" id="portfolioTitle"></h2>
         <div class="portfolio-container" id="portfolioContainer">
-            <!-- Portfolio items will be filled from data.js -->
         </div>
     </section>
 
@@ -98,7 +105,6 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content" id="footerContent">
-            <!-- Footer content will be filled from data.js -->
         </div>
     </footer>
 
