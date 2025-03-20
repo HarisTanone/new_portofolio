@@ -165,17 +165,17 @@ const languageData = {
             },
             'project3': {
                 id: 'project3',
-                title: 'Electronic GR System (E-GR)',
-                shortDescription: 'A digital goods receipt management system to optimize logistics processes.',
-                thumbnail: '/api/placeholder/600/400',
+                title: 'Coming Soon',
+                shortDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                thumbnail: 'assets/images/dummy/dummy.jpg',
                 tags: ['Laravel', 'MySQL', 'Bootstrap'],
                 details: `
                     <h3>About the Project</h3>
-                    <p>A digital goods receipt management system to optimize logistics processes.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     <h3>Challenges</h3>
-                    <p>Managing large volumes of goods receipt data.</p>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                     <h3>Solution</h3>
-                    <p>Used Laravel and MySQL for a scalable and responsive system.</p>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                     <h3>Technologies Used</h3>
                     <ul>
                         <li>Laravel</li>
@@ -186,25 +186,22 @@ const languageData = {
                     </ul>
                 `,
                 images: [
-                    '/api/placeholder/800/500',
-                    '/api/placeholder/800/500',
-                    '/api/placeholder/800/500',
-                    '/api/placeholder/800/500'
+                    'assets/images/dummy/dummy.jpg',
                 ]
             },
             'project4': {
                 id: 'project4',
-                title: 'IoT Production Solution',
-                shortDescription: 'IoT implementation for automated daily production monitoring and calculation.',
-                thumbnail: '/api/placeholder/600/400',
+                title: 'Coming Soon',
+                shortDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                thumbnail: 'assets/images/dummy/dummy.jpg',
                 tags: ['IoT', 'Node.js', 'MongoDB'],
                 details: `
                     <h3>About the Project</h3>
-                    <p>IoT implementation for automated daily production monitoring and calculation.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     <h3>Challenges</h3>
-                    <p>Real-time IoT data synchronization.</p>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                     <h3>Solution</h3>
-                    <p>Used Node.js and MongoDB for fast and efficient data management.</p>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                     <h3>Technologies Used</h3>
                     <ul>
                         <li>Arduino and ESP32</li>
@@ -215,10 +212,7 @@ const languageData = {
                     </ul>
                 `,
                 images: [
-                    '/api/placeholder/800/500',
-                    '/api/placeholder/800/500',
-                    '/api/placeholder/800/500',
-                    '/api/placeholder/800/500'
+                    'assets/images/dummy/dummy.jpg',
                 ]
             }
         },
@@ -402,18 +396,18 @@ const languageData = {
             },
             'project3': {
                 id: 'project3',
-                title: 'Sistem Elektronik GR (E-GR)',
-                shortDescription: 'Sistem pengelolaan penerimaan barang digital untuk mengoptimalkan proses logistik.',
-                thumbnail: '/api/placeholder/600/400',
+                title: 'Coming Soon',
+                shortDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                thumbnail: 'assets/images/dummy/dummy.jpg',
                 tags: ['Laravel', 'MySQL', 'Bootstrap'],
                 details: `
-                    <h3>Tentang Proyek</h3>
-                    <p>Sistem pengelolaan penerimaan barang digital untuk mengoptimalkan proses logistik.</p>
-                    <h3>Tantangan</h3>
-                    <p>Mengelola data penerimaan barang dalam jumlah besar.</p>
-                    <h3>Solusi</h3>
-                    <p>Menggunakan Laravel dan MySQL untuk sistem yang scalable dan responsif.</p>
-                    <h3>Teknologi yang Digunakan</h3>
+                    <h3>About the Project</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <h3>Challenges</h3>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <h3>Solution</h3>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <h3>Technologies Used</h3>
                     <ul>
                         <li>Laravel</li>
                         <li>MySQL</li>
@@ -423,28 +417,25 @@ const languageData = {
                     </ul>
                 `,
                 images: [
-                    '/api/placeholder/800/500',
-                    '/api/placeholder/800/500',
-                    '/api/placeholder/800/500',
-                    '/api/placeholder/800/500'
+                    'assets/images/dummy/dummy.jpg'
                 ]
             },
             'project4': {
                 id: 'project4',
-                title: 'Solusi IoT Produksi',
-                shortDescription: 'Implementasi IoT untuk monitoring dan perhitungan produksi harian secara otomatis.',
-                thumbnail: '/api/placeholder/600/400',
+                title: 'Coming Soon',
+                shortDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                thumbnail: 'assets/images/dummy/dummy.jpg',
                 tags: ['IoT', 'Node.js', 'MongoDB'],
                 details: `
-                    <h3>Tentang Proyek</h3>
-                    <p>Implementasi IoT untuk monitoring dan perhitungan produksi harian secara otomatis.</p>
-                    <h3>Tantangan</h3>
-                    <p>Sinkronisasi data IoT secara real-time.</p>
-                    <h3>Solusi</h3>
-                    <p>Menggunakan Node.js dan MongoDB untuk pengelolaan data yang cepat dan efisien.</p>
-                    <h3>Teknologi yang Digunakan</h3>
+                    <h3>About the Project</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <h3>Challenges</h3>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <h3>Solution</h3>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <h3>Technologies Used</h3>
                     <ul>
-                        <li>Arduino dan ESP32</li>
+                        <li>Arduino and ESP32</li>
                         <li>Node.js</li>
                         <li>MongoDB</li>
                         <li>Socket.io</li>
@@ -452,10 +443,7 @@ const languageData = {
                     </ul>
                 `,
                 images: [
-                    '/api/placeholder/800/500',
-                    '/api/placeholder/800/500',
-                    '/api/placeholder/800/500',
-                    '/api/placeholder/800/500'
+                    'assets/images/dummy/dummy.jpg',
                 ]
             }
         },
