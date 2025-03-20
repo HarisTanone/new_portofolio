@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/canva.css">
 </head>
 
 <body>
@@ -58,18 +59,24 @@
         </div>
     </section>
 
-    <!-- Portfolio Modal (for desktop) -->
-    <div id="portfolioModal" class="modal">
-        <div class="modal-content">
-            <button class="close-modal">×</button>
-            <h2 class="modal-title" id="modalTitle"></h2>
-            <div class="swiper">
-                <div class="swiper-wrapper" id="modalSwiper"></div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
+    <!-- Portfolio Offcanvas (for desktop) -->
+    <div id="portfolioOffcanvas" class="offcanvas">
+        <div class="offcanvas-content">
+            <div class="offcanvas-header">
+                <h2 class="offcanvas-title" id="offcanvasTitle"></h2>
+                <button class="close-offcanvas">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
-            <div class="modal-details" id="modalDetails"></div>
+            <div class="offcanvas-body">
+                <div class="swiper offcanvas-swiper">
+                    <div class="swiper-wrapper" id="offcanvasSwiper"></div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+                <div class="offcanvas-details" id="offcanvasDetails"></div>
+            </div>
         </div>
     </div>
 

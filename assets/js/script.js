@@ -1,4 +1,16 @@
-// Load data from data.js
+let offcanvasSlider;
+let mobileSwiper;
+const offcanvas = document.getElementById('portfolioOffcanvas');
+const closeOffcanvas = document.querySelector('.close-offcanvas');
+const offcanvasTitle = document.getElementById('offcanvasTitle');
+const offcanvasDetails = document.getElementById('offcanvasDetails');
+const offcanvasSwiper = document.getElementById('offcanvasSwiper');
+const bottomSheet = document.getElementById('portfolioBottomSheet');
+const closeBottomSheet = document.querySelector('.close-bottom-sheet');
+const bottomSheetTitle = document.getElementById('bottomSheetTitle');
+const bottomSheetDetails = document.getElementById('bottomSheetDetails');
+const bottomSheetSwiper = document.getElementById('bottomSheetSwiper');
+
 document.addEventListener('DOMContentLoaded', function() {
     // Populate navigation
     const navLinks = document.getElementById('navLinks');
@@ -150,20 +162,6 @@ function isMobile() {
     return window.innerWidth < 768;
 }
 
-// Portfolio modal and bottom sheet handlers
-const modal = document.getElementById('portfolioModal');
-const bottomSheet = document.getElementById('portfolioBottomSheet');
-const modalTitle = document.getElementById('modalTitle');
-const bottomSheetTitle = document.getElementById('bottomSheetTitle');
-const modalDetails = document.getElementById('modalDetails');
-const bottomSheetDetails = document.getElementById('bottomSheetDetails');
-const modalSwiper = document.getElementById('modalSwiper');
-const bottomSheetSwiper = document.getElementById('bottomSheetSwiper');
-const closeModal = document.querySelector('.close-modal');
-const closeBottomSheet = document.querySelector('.close-bottom-sheet');
-
-let desktopSwiper, mobileSwiper;
-
 // Portfolio item click handler
 document.addEventListener('click', function(e) {
     const portfolioItem = e.target.closest('.portfolio-item');
@@ -174,39 +172,45 @@ document.addEventListener('click', function(e) {
     
     if (project) {
         if (isMobile()) {
-            // Show bottom sheet for mobile
             showBottomSheet(project);
         } else {
-            // Show modal for desktop
-            showModal(project);
+            showOffcanvas(project);
         }
     }
 });
 
-function showModal(project) {
-    modalTitle.textContent = project.title;
-    modalDetails.innerHTML = project.details;
-    
-    modalSwiper.innerHTML = '';
+function showOffcanvas(project) {
+    offcanvasTitle.textContent = project.title;
+    offcanvasDetails.innerHTML = project.details;
+
+    offcanvasSwiper.innerHTML = '';
     project.images.forEach(img => {
         const slide = document.createElement('div');
         slide.className = 'swiper-slide';
-        slide.innerHTML = `<img src="${img}" alt="${project.title}" style="width: 100%; height: auto;">`;
-        modalSwiper.appendChild(slide);
+        slide.innerHTML = `<img src="${img}" alt="${project.title}">`;
+        offcanvasSwiper.appendChild(slide);
     });
     
-    if (desktopSwiper) desktopSwiper.destroy();
+    if (offcanvasSlider) offcanvasSlider.destroy();
     
-    desktopSwiper = new Swiper('.modal .swiper', {
+    offcanvasSlider = new Swiper('.offcanvas-swiper', {
         loop: true,
-        pagination: { el: '.modal .swiper-pagination', clickable: true },
+        pagination: { el: '.offcanvas-swiper .swiper-pagination', clickable: true },
         navigation: { 
-            nextEl: '.modal .swiper-button-next', 
-            prevEl: '.modal .swiper-button-prev' 
+            nextEl: '.offcanvas-swiper .swiper-button-next', 
+            prevEl: '.offcanvas-swiper .swiper-button-prev' 
+        },
+        effect: 'fade',
+        fadeEffect: {
+            crossFade: true
+        },
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false
         }
     });
     
-    modal.style.display = 'block';
+    offcanvas.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
 
@@ -233,23 +237,14 @@ function showBottomSheet(project) {
     document.body.style.overflow = 'hidden';
 }
 
-// Close modal and bottom sheet
-closeModal.addEventListener('click', () => {
-    modal.style.display = 'none';
+closeOffcanvas.addEventListener('click', () => {
+    offcanvas.classList.remove('active');
     document.body.style.overflow = 'auto';
 });
 
 closeBottomSheet.addEventListener('click', () => {
     bottomSheet.classList.remove('active');
     document.body.style.overflow = 'auto';
-});
-
-// Close when clicking outside
-window.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
 });
 
 // Smooth scrolling
@@ -265,11 +260,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Handle resize events to switch between modal and bottom sheet
+// Handle resize events to close offcanvas or bottom sheet
 window.addEventListener('resize', function() {
-    // If modal or bottom sheet is currently open, close it
-    if (modal.style.display === 'block' || bottomSheet.classList.contains('active')) {
-        modal.style.display = 'none';
+    if (offcanvas.classList.contains('active') || bottomSheet.classList.contains('active')) {
+        offcanvas.classList.remove('active');
         bottomSheet.classList.remove('active');
         document.body.style.overflow = 'auto';
     }
