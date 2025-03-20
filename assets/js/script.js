@@ -200,7 +200,10 @@ function showModal(project) {
     desktopSwiper = new Swiper('.modal .swiper', {
         loop: true,
         pagination: { el: '.modal .swiper-pagination', clickable: true },
-        navigation: { nextEl: '.modal .swiper-button-next', prevEl: '.modal .swiper-button-prev' }
+        navigation: { 
+            nextEl: '.modal .swiper-button-next', 
+            prevEl: '.modal .swiper-button-prev' 
+        }
     });
     
     modal.style.display = 'block';
