@@ -158,33 +158,55 @@ const portfolioData = {
         },
         'project2': {
             id: 'project2',
-            title: 'Dashboard Epicor ERP',
-            shortDescription: 'Pengembangan dashboard untuk visualisasi data bisnis dengan analisis real-time.',
-            thumbnail: '/api/placeholder/600/400',
-            tags: ['Epicor ERP', 'SSRS', 'BAQ'],
+            title: 'HRIS Web & Mobile',
+            shortDescription: 'Pengembangan aplikasi HRIS web dan juga mobile version',
+            thumbnail: 'assets/images/hris/2a.png',
+            tags: ['Epicor ERP', 'SSRS', 'BAQ', 'Filament', 'Flutter', 'Firebase'],
             details: `
                 <h3>Tentang Proyek</h3>
-                <p>Pengembangan dashboard untuk visualisasi data bisnis dengan analisis real-time.</p>
+                <p>Pengembangan aplikasi HRIS web dan juga mobile version</p>
+                
                 <h3>Tantangan</h3>
-                <p>Menampilkan data kompleks dalam format yang mudah dipahami.</p>
+                <ul>
+                    <li><strong>Manajemen Data yang Kompleks:</strong> HRIS memiliki banyak modul seperti data karyawan, payroll, cuti, absensi, dan lainnya. Mengelola relasi antar data bisa menjadi tantangan.</li>
+                    <li><strong>Optimasi API dengan Filament API Service:</strong> Endpoint API harus cepat dan efisien untuk menangani banyak request dari aplikasi mobile.</li>
+                    <li><strong>Real-time Push Notification dengan Firebase:</strong> Mengirimkan notifikasi real-time untuk cuti, persetujuan, dan pengumuman penting.</li>
+                    <li><strong>Manajemen Autentikasi dan Otorisasi:</strong> Harus mendukung peran pengguna (misalnya Admin, Karyawan, HR) dengan akses yang berbeda.</li>
+                    <li><strong>Keamanan Data:</strong> Data karyawan bersifat sensitif, sehingga harus menerapkan enkripsi dan otorisasi yang ketat.</li>
+                </ul>
+        
                 <h3>Solusi</h3>
-                <p>Menggunakan SSRS dan BAQ untuk mengolah dan menampilkan data secara efisien.</p>
+                <ul>
+                    <li>Menggunakan Filament Admin Panel untuk mempermudah CRUD dan pengelolaan data secara efisien.</li>
+                    <li>Menerapkan Filament API Service untuk menyediakan API yang optimal bagi aplikasi mobile.</li>
+                    <li>Menggunakan Firebase Cloud Messaging (FCM) untuk push notification real-time.</li>
+                    <li>Menerapkan Role-Based Access Control (RBAC) di Laravel dan Flutter.</li>
+                    <li>Menggunakan Laravel Sanctum untuk keamanan komunikasi antara backend dan mobile.</li>
+                </ul>
+        
                 <h3>Teknologi yang Digunakan</h3>
                 <ul>
-                    <li>Epicor ERP</li>
-                    <li>Business Activity Query (BAQ)</li>
-                    <li>SQL Server Reporting Services (SSRS)</li>
-                    <li>Dashboard visualisasi data</li>
-                    <li>API Integrasi</li>
+                    <li>Filament PHP (Filament Admin & Filament API Service)</li>
+                    <li>Flutter (Frontend Mobile)</li>
+                    <li>Firebase Cloud Messaging (Push Notification)</li>
+                    <li>Laravel + MySQL (Backend & Database)</li>
+                    <li>API Integrasi untuk komunikasi antara backend dan frontend</li>
                 </ul>
             `,
             images: [
-                '/api/placeholder/800/500',
-                '/api/placeholder/800/500',
-                '/api/placeholder/800/500',
-                '/api/placeholder/800/500'
+                'assets/images/hris/1a.png',
+                'assets/images/hris/2a.png',
+                'assets/images/hris/3a.png',
+                'assets/images/hris/4a.png',
+                'assets/images/hris/web1.png',
+                'assets/images/hris/web2.png',
+                'assets/images/hris/web3.png',
+                'assets/images/hris/web4.png',
+                'assets/images/hris/web5.png',
+                'assets/images/hris/web6.png',
+                'assets/images/hris/web7.png',
             ]
-        },
+        },        
         'project3': {
             id: 'project3',
             title: 'Sistem Elektronik GR (E-GR)',
